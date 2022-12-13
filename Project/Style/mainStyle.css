@@ -1,0 +1,273 @@
+html {
+  scroll-behavior: smooth;
+}
+@media (min-width: 0) {
+  .g-mr-15 {
+    margin-right: 1.07143rem !important;
+  }
+}
+@media (min-width: 0) {
+  .g-mt-3 {
+    margin-top: 0.21429rem !important;
+  }
+}
+.g-height-50 {
+  height: 50px;
+}
+
+.g-width-50 {
+  width: 50px !important;
+}
+
+@media (min-width: 0) {
+  .g-pa-30 {
+    padding: 2.14286rem !important;
+  }
+}
+
+.g-bg-secondary {
+  background-color: #fafafa !important;
+}
+
+.u-shadow-v18 {
+  box-shadow: 0 5px 10px -6px rgba(0, 0, 0, 0.15);
+}
+
+.g-color-gray-dark-v4 {
+  color: #777 !important;
+}
+
+.g-font-size-12 {
+  font-size: 0.85714rem !important;
+}
+
+.media-comment {
+  margin-top: 20px;
+}
+.well-social-post {
+  border-radius: 0;
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+  padding: 0;
+}
+
+.well-social-post .glyphicon,
+.well-social-post .fa,
+.well-social-post [class^="icon-"],
+.well-social-post [class*="icon-"] {
+  font-weight: bold;
+  color: #999999;
+}
+
+.well-social-post a,
+.well-social-post a:hover,
+.well-social-post a:active,
+.well-social-post a:focus {
+  text-decoration: none;
+}
+
+.well-social-post .list-inline {
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 10px;
+}
+
+.well-social-post .list-inline li {
+  position: relative;
+}
+
+.well-social-post .list-inline li.active::after {
+  position: absolute;
+  display: block;
+  width: 0;
+  height: 0;
+  content: "";
+  top: 30px;
+  left: 50%;
+  left: -webkit-calc(50% - 5px);
+  left: -moz-calc(50%-5px);
+  left: calc(50% - 5px);
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid #dddddd;
+}
+
+.well-social-post .list-inline li.active a {
+  color: #222222;
+  font-weight: bold;
+}
+
+.well-social-post .form-control {
+  width: 100%;
+  min-height: 100px;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.well-social-post .list-inline {
+  padding: 10px;
+}
+
+.well-social-post .list-inline li + li {
+  margin-left: 10px;
+}
+
+.well-social-post .post-actions {
+  margin: 0;
+  background-color: #f6f7f8;
+  border-top-color: #e9eaed;
+}
+.form-label {
+  cursor: pointer;
+}
+
+.box-widget {
+  border: none;
+  position: relative;
+}
+.box {
+  position: relative;
+  border-radius: 3px;
+  background: #ffffff;
+  border-top: 3px solid #d2d6de;
+  margin-bottom: 20px;
+  width: 100%;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+}
+.box-header.with-border {
+  border-bottom: 1px solid #f4f4f4;
+}
+.box-header {
+  color: #444;
+  display: block;
+  padding: 10px;
+  position: relative;
+}
+.user-block img {
+  width: 40px;
+  height: 40px;
+  float: left;
+}
+.user-block .username {
+  font-size: 16px;
+  font-weight: 600;
+}
+.user-block .description {
+  color: #999;
+  font-size: 13px;
+}
+.user-block .username,
+.user-block .description,
+.user-block .comment {
+  display: block;
+  margin-left: 50px;
+}
+.box-header > .box-tools {
+  position: absolute;
+  right: 10px;
+  top: 5px;
+}
+.btn-box-tool {
+  padding: 5px;
+  font-size: 12px;
+  background: transparent;
+  color: #97a0b3;
+}
+.box-body {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 3px;
+  border-bottom-left-radius: 3px;
+  padding: 10px;
+}
+.pad {
+  padding: 10px;
+}
+.box .btn-default {
+  background-color: #f4f4f4;
+  color: #444;
+  border-color: #ddd;
+}
+.box-comments {
+  background: #f7f7f7 !important;
+}
+.box-footer {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 3px;
+  border-bottom-left-radius: 3px;
+  border-top: 1px solid #f4f4f4;
+  padding: 10px;
+  background-color: #fff;
+}
+.box-comments .box-comment:first-of-type {
+  padding-top: 0;
+}
+.box-comments .box-comment {
+  padding: 8px 0;
+  border-bottom: 1px solid #eee;
+}
+.img-sm,
+.box-comments .box-comment img,
+.user-block.user-block-sm img {
+  width: 30px !important;
+  height: 30px !important;
+}
+.img-sm,
+.img-md,
+.img-lg,
+.box-comments .box-comment img,
+.user-block.user-block-sm img {
+  float: left;
+}
+.box-comments .comment-text {
+  margin-left: 40px;
+  color: #555;
+}
+.box-comments .username {
+  color: #444;
+  display: block;
+  font-weight: 600;
+}
+.box-comments .text-muted {
+  font-weight: 400;
+  font-size: 12px;
+}
+.img-sm + .img-push {
+  margin-left: 40px;
+}
+.box .form-control {
+  border-radius: 0;
+  box-shadow: none;
+  border-color: #d2d6de;
+}
+
+/* CUSTOM CSS  */
+#nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 9999;
+  margin: center auto;
+}
+.content {
+  margin-top: 35px;
+  height: 5000px;
+}
+
+#profile-pic {
+  width: 50px;
+  height: 50px;
+}
+.Notif-title{
+  margin-left: 10px;
+  margin-top: 10px;
+}
+
+
+
+
+
+
+
+

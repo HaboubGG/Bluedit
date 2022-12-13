@@ -1,0 +1,70 @@
+<br>
+<nav class="nav nav-borders">
+    <a class="nav-link active ms-0" href="profileDetails.php" target="__blank">Profile</a>
+    <a class="nav-link" href="profileDetailsPosts.php" target="__blank">Posts</a>
+</nav>
+<hr class="mt-0 mb-4">
+<div class="card mb-4">
+    <div class="card-header">Account posts</div>
+    <div class="row">
+        <div class="col-md-12">
+            <div id="content" class="content content-full-width">
+                <!-- begin profile-content -->
+                <div class="profile-content">
+                    <!-- begin tab-content -->
+                    <?php foreach ($posts as $post) : ?>
+                        <div class="tab-content p-0">
+                            <!-- begin #profile-post tab -->
+                            <div class="tab-pane fade active show" id="profile-post">
+                                <!-- begin timeline -->
+                                <ul class="timeline">
+                                    <li>
+                                        <!-- begin timeline-time -->
+                                        <div class="timeline-time">
+                                            <span class="time"><?= $post['postDate'] ?></span>
+                                        </div>
+                                        <!-- end timeline-time -->
+                                        <!-- begin timeline-icon -->
+                                        <div class="timeline-icon">
+                                            <a href="javascript:;">&nbsp;</a>
+                                        </div>
+                                        <!-- end timeline-icon -->
+                                        <!-- begin timeline-body -->
+                                        <div class="timeline-body">
+                                            <div class="timeline-header">
+                                                <span class="userimage"><img src="images/<?= $user['picture'] ?>" alt=""></span>
+                                                <span class="username"><a href="javascript:;"><?= $user['username'] ?></a> <small></small></span>
+                                            </div>
+                                            <div class="timeline-content">
+                                                <p>
+                                                    <?= $post['description'] ?>
+                                                </p>
+                                                <div style="<?= $post['postPhoto'] ? 'display:block' : 'display:none' ?>">
+                                                    <img src="images/<?= $post['postPhoto'] ?>" width="60%" height="70%">
+                                                    <br>
+                                                    <br>
+                                                </div>
+                                            </div>
+
+                                            <form method="post" action="<?= $_SERVER['PHP_SELF'] ?>">
+                                                <div class="input-group">
+                                                    <span class="input-group-btn p-l-10">
+                                                        <!-- bch nekhdo el postId bch najmo nesta3mlouh fl requete sql  -->
+                                                        <input type="hidden" name="postId" id="postId" value="<?= $post['id'] ?>">
+                                                        <button class="btn btn-danger" type="submit">Delete post </button>
+                                                    </span>
+                                                </div>
+                                            </form>
+                                        </div>
+                                        <!-- end timeline-body -->
+                                    </li>
+
+                            </div>
+                        <?php endforeach; ?>
+
+                        </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,118 @@
+<!-- Navbar-->
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+
+<body style="background-color:#EAEAEA">
+  <br>
+  <div class="content">
+    <!-- update status -->
+    <div class="card" style="width:55rem">
+      <div class="rounded">
+        <div class="col-md-10-rounded" style="border-radius:50px">
+          <div class="well well-sm well-social-post">
+            <form method="post" enctype="multipart/form-data" action="<?= $_SERVER['PHP_SELF'] ?>" target="votar">
+              <ul class="list-inline" id='list_PostActions'>
+                <li class='active'><i class="bi bi-pencil-square"></i><a href='#'> Update status</a></li>
+              </ul>
+              <textarea class="form-control" placeholder="What's in your mind?" name="description" required></textarea>
+              <ul class='list-inline post-actions'>
+
+                <li>
+
+                  <label for="formFileMultiple" class="form-label"><i class="bi bi-images"></i> Upload Photo</label>
+                  <br>
+                  <input style="display:none" type="file" id="formFileMultiple" name="file" />
+
+                </li>
+                <br>
+                <input class='btn btn-primary btn-xs' type="submit" value="post" name="postButton">
+              </ul>
+
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br>
+    <h2> Recent posts</h2>
+    <br>
+
+    <?php foreach ($posts as $post) : ?>
+      <div class="card" style="width:55rem">
+        <div class="container bootstrap snippets bootdey">
+
+          <div class="box box-widget">
+            <div class="box-header with-border">
+              <div class="user-block" style="margin-top:15px">
+                <img class="img-circle" src="images/<?= $post['postedByImage'] ?>" alt="User Image">
+                <span class="username"><a href="#"><?= $post['postedBy'] ?></a></span>
+                <span class="description">Shared publicly - <?= $post['postDate'] ?></span>
+              </div>
+            </div>
+            <div class="box-body" style="display: block;">
+              <br>
+              <p><?= $post['description'] ?></p>
+              <!-- photo !=null test -->
+              <div style="<?= $post['postPhoto'] ? 'display:block' : 'display:none' ?>">
+                <img src="images/<?= $post['postPhoto'] ?>" width="60%" height="auto">
+              </div>
+              <br>
+              <span class="pull-right text-muted"><?= $post['jaime'] ?> likes </span>
+              <!-- like button -->
+              <form action="index.php" method="post">
+                <input type="hidden" name="postId" value="<?= $post['id'] ?>">
+                <input type="hidden" name="postedById" value="<?= $post['postedById'] ?>">
+
+                <input type="submit" class="btn btn-secondary btn-xs" name="likeButton" value="Like">
+              </form>
+            </div>
+            <?php foreach ($comments as $comment) :  $counter = 0 ?>
+
+              <?php if ($post['id'] == $comment['postId']) {
+                $counter++; ?>
+                <div class="box-footer box-comments" style="display: block;">
+                  <div class="box-comment">
+                    <img class="img-circle img-sm" src="images/<?= $comment['commentedByImage'] ?>" alt="User Image">
+                    <div class="comment-text">
+                      <span class="username">
+                        <?= $comment['commentedBy'] ?>
+                        <span class="text-muted pull-right"><?= $comment['commentDate'] ?></span>
+                      </span>
+                      <?= $comment['comment'] ?>
+                    </div>
+                  </div>
+                </div>
+              <?php }
+              $post['commentsCounter'] = $counter; ?>
+            <?php endforeach; ?>
+
+            <div class="box-footer" style="display: block;">
+              <form action="index.php" method="post">
+                <img class="img-responsive img-circle img-sm" src="images/<?= $user['picture'] ?>" alt="Alt Text">
+                <div class="img-push">
+                  <input type="hidden" name="postId" value="<?= $post['id'] ?>">
+                  <input type="hidden" name="commentedBy" value="<?= $user['username'] ?>">
+                  <div class="row row-cols-1 row-cols-md-2 ">
+                    <input type="hidden" name="postedById" value="<?= $post['postedById'] ?>">
+
+                    <div class="col">
+                      <input type="text" class="form-control input-sm" placeholder="Press enter to post comment" name="comment" required>
+                    </div>
+                    <div class="col">
+                      <input class='btn btn-default btn-xs' type="submit" value="Comment" name="commentButton">
+
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      <br>
+      <br>
+    <?php endforeach; ?>
+    <br>
+    <br>
+
+
+</body>

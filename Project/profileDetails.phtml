@@ -1,0 +1,94 @@
+<br>
+<!-- Account page navigation-->
+<nav class="nav nav-borders">
+    <a class="nav-link active ms-0" href="profileDetails.php" target="__blank">Profile</a>
+    <a class="nav-link" href="profileDetailsPosts.php" target="__blank">Posts</a>
+</nav>
+<hr class="mt-0 mb-4">
+<?php if ($msg) { ?>
+    <div class='alert alert-secondary'> <b> <?php echo $msg; ?><b></div>
+<?php } ?>
+<div class="row">
+    <div class="col-xl-4">
+        <!-- Profile picture card-->
+        <div class="card mb-4 mb-xl-0">
+            <div class="card-header">Profile Picture</div>
+            <div class="card-body text-center">
+                <!-- Profile picture image-->
+                <img class="img-circle" src="images/<?= $user['picture'] ?>" width="100%" height="auto">
+                <!-- Profile picture help block-->
+                <div class="small font-italic text-muted mb-4">JPG or PNG no larger than 5 MB</div>
+                <!-- Profile picture upload button-->
+                <!-- enctype="multipart/form-data" used cause we have file upload -->
+                <label for="formFileMultiple" class="form-label"><i class="bi bi-images"></i> Upload Photo</label>
+                <br>
+                <form method="post" enctype="multipart/form-data" action="profileDetails.php">
+
+                    <input style="display:none" type="file" id="formFileMultiple" name="file" />
+                    <input type="submit" name="changePhoto" value="Save" class='btn btn-primary btn-xs'>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-xl-8">
+        <!-- Account details card-->
+        <div class="card mb-4">
+            <div class="card-header">Account Details</div>
+            <div class="card-body">
+                <form method="post" enctype="multipart/form-data" action="profileDetails.php">
+
+                    <!-- Form Group (username)-->
+                    <div class="mb-3">
+                        <label class="small mb-1" for="inputUsername">Username </label>
+                        <input class="form-control" id="inputUsername" type="text" placeholder="Enter your username" name="username" value="<?= $user['username'] ?>">
+                    </div>
+                    <!-- Form Row-->
+
+                    <!-- Form Row        -->
+                    <div class="row gx-3 mb-3">
+
+                        <!-- Form Group (organization name)-->
+                        <div class="col-md-6">
+                            <label class="small mb-1" for="inputOrgName">Organization name</label>
+                            <input class="form-control" id="inputOrgName" type="text" name="organisation" placeholder="Enter your organization name" value="<?= $user['organisation'] ?>">
+                        </div>
+                        <!-- Form Group (location)-->
+                        <div class="col-md-6">
+                            <label class="small mb-1" for="inputLocation">Location</label>
+                            <input class="form-control" id="inputLocation" type="text" name="location" placeholder="Enter your location" value="<?= $user['location'] ?>">
+                        </div>
+                    </div>
+                    <!-- Form Row-->
+                    <div class="row gx-3 mb-3">
+                        <!-- Form Group (phone number)-->
+                        <div class="col-md-6">
+                            <label class="small mb-1" for="inputPhone">Phone number</label>
+                            <input class="form-control" id="inputPhone" type="tel" name="phone" placeholder="Enter your phone number" value="<?= $user['phone'] ?>">
+                        </div>
+                        <!-- Form Group (birthday)-->
+                    </div>
+                    <!-- Save changes button-->
+                    <input type="submit" class='btn btn-primary btn-xs' name="changeDetails" value="Save changes">
+                    <br>
+                    <br>
+                </form>
+                <form action="profileDetails.php" method="post">
+                    <label class="small mb-2" for="inputEmailAddress">
+                        <h6>Change password</h6>
+                    </label>
+                    <div class="mb-3">
+                        <label class="small mb-1" for="inputEmailAddress">Current Password</label>
+                        <input class="form-control" id="inputEmailAddress" type="password" name="currentPassword" placeholder="Type your current password" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="small mb-1" for="inputEmailAddress">New Password</label>
+                        <input class="form-control" id="inputEmailAddress" type="password" name="newPassword" placeholder="Enter your New password" required>
+                    </div>
+                    <input type="submit" class='btn btn-primary btn-xs' name="changePassword" value="Change Password">
+                </form>
+            </div>
+        </div>
+    </div>
+
+</div>
